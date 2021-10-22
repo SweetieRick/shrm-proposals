@@ -4,6 +4,7 @@ use serenity::{
     model::{channel::Message, gateway::Ready},
     prelude::*,
 };
+use dotenv::dotenv;
 
 struct ClientHandler;
 
@@ -39,6 +40,7 @@ impl EventHandler for ClientHandler {
 
 #[tokio::main]
 async fn main() {
+    dotenv().ok();
     // Configure the client with your Discord bot token in the environment.
     let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
 
